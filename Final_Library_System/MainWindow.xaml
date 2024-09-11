@@ -1,0 +1,271 @@
+﻿<Window x:Class="Final_Library_System.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Final_Library_System"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True"
+        Title="MainWindow" Height="500" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="col1" Width="1.3*"/>
+            <ColumnDefinition Name="col2" Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="Blue" CornerRadius="10 0 0 10">
+            <Image x:Name="uclm" Stretch="Fill" HorizontalAlignment="Left"/>
+        </Border>
+        <!--This border is for Register Panel-->
+        <Border Name="registerPanel" Grid.Column="1" Background="White" CornerRadius="0 0 0 0" Visibility="Hidden">
+            <StackPanel VerticalAlignment="Center">
+                <Button Name="backButton" Margin="0 -20 420 0" Background="Transparent" BorderBrush="Transparent" Click="backButton_Click" Cursor="Hand">
+                    
+                    <Path Data="M9.41412 12L16.707 19.2929L15.2928 20.7071L6.58569 12L15.2928 3.29291L16.707 4.70712L9.41412 12Z" Fill="black"/>
+                </Button>
+                <TextBlock Text="Registration" Style="{StaticResource welcomeTitle}" FontSize="25" Foreground="Black"/>
+                <Rectangle Margin="40,20,0,0" Width="50" Height="3" HorizontalAlignment="Left">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0,0.5" StartPoint="1,0.5">
+                            <GradientStop Color="#FF0033FF" Offset="1"/>
+                            <GradientStop Color="#FFFFC700" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="ID #" Style="{StaticResource textID_Pass}" Margin="0 20 0 0" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 20 40 0" CornerRadius="16" Height="32" Background="Transparent" >
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBox x:Name="txtIDReg" Style="{StaticResource txtBoxReg}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="First Name" Style="{StaticResource textID_Pass}" Margin="0 10 0 0" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 10 40 0" CornerRadius="16" Height="32" Background="Transparent" >
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBox x:Name="txtFNameReg" Style="{StaticResource txtBoxReg}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Last Name" Style="{StaticResource textID_Pass}" Margin="0 10 0 0" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 10 40 0" CornerRadius="16" Height="32" Background="Transparent" >
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBox x:Name="txtLNameReg" Style="{StaticResource txtBoxReg}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Course" Style="{StaticResource textID_Pass}" Padding="40 0 0 0" Margin="0 10 0 0" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="10 10 10 0" CornerRadius="16" Height="32" Background="Transparent" >
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBox x:Name="txtCourseReg" Style="{StaticResource txtBoxReg}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Year" Style="{StaticResource textID_Pass}" Padding="10 0 0 0" Margin="0 10 0 0" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="10 10 40 0" CornerRadius="16" Height="32" Background="Transparent" >
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBox x:Name="txtYearReg" Style="{StaticResource txtBoxReg}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Email" Style="{StaticResource textID_Pass}" Margin="0 10 0 0" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 10 40 0" CornerRadius="16" Height="32" Background="Transparent" >
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBox x:Name="txtEmailReg" Style="{StaticResource txtBoxReg}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Password" Style="{StaticResource textID_Pass}" Margin="0 10 0 0" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 10 40 0" CornerRadius="16" Height="32" Background="Transparent" >
+                        <StackPanel VerticalAlignment="Center">
+                            <PasswordBox x:Name="txtPasswordReg" Style="{StaticResource textBox}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Confirm Pass" Style="{StaticResource textID_Pass}" Margin="0 10 0 0" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 10 40 0" CornerRadius="16" Height="32" Background="Transparent" >
+                        <StackPanel VerticalAlignment="Center">
+                            <PasswordBox x:Name="txtConPasswordReg" Style="{StaticResource textBox}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="registerButton"  Grid.Column="1" Content="Register" Style="{StaticResource mainButton}" Height="32" Click="registerButton_Click" Cursor="Hand">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,.5" StartPoint="0.5,0">
+                                <GradientStop Color="Blue"/>
+                                <GradientStop Color="Blue" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <!--This border is for Login Panel-->
+        <Border Name="loginPanel" Grid.Column="1" Background="White" CornerRadius="0 0 0 0">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Welcome to UCLM!" Style="{StaticResource welcomeTitle}" Foreground="Black"/>
+                <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." Style="{StaticResource welcomeDesc}" Margin="0 5 0 0"/>
+                <Rectangle Margin="40,20,0,0" Width="50" Height="3" HorizontalAlignment="Left">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0,0.5" StartPoint="1,0.5">
+                            <GradientStop Color="#FF0033FF" Offset="1"/>
+                            <GradientStop Color="#FFFFC700" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock Text="User ID #" Style="{StaticResource textID_Pass}" Margin="0 20 0 0"/>
+                <Border BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 10 40 0" CornerRadius="16" Height="32" Background="Transparent">
+                    <Grid Margin="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="txtID" Style="{StaticResource textBox}" BorderThickness="0"/>
+                    </Grid>
+                </Border>
+                <TextBlock Text="Password" Style="{StaticResource textID_Pass}" Margin="0 15 0 0"/>
+                <Border BorderThickness="1,1,1,1" BorderBrush="#d9d9d9" Margin="40 10 40 0" CornerRadius="16" Height="32" Background="Transparent">
+                    <Grid Margin="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <PasswordBox x:Name="txtPassword" Style="{StaticResource textBox}" BorderThickness="0"/>
+                    </Grid>
+                </Border>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Need an Account?" Style="{StaticResource needAccText}"/>
+                    <Button Name="regButton" Grid.Column="1" Content="Click Here" Style="{StaticResource regButton}" HorizontalAlignment="Left" Click="regButton_Click" BorderThickness="0" Cursor="Hand" Background="Transparent"/>
+                </Grid>
+                <Button Name="loginButton" Content="Login" Style="{StaticResource mainButton}" Height="32" Margin="80 30 80 0" Click="loginButton_Click" Cursor="Hand">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,.5" StartPoint="0.5,0">
+                            <GradientStop Color="Blue"/>
+                            <GradientStop Color="Blue" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </StackPanel>
+        </Border>
+        <Grid Name="informationRegisterPanel" Grid.ColumnSpan="2" Margin="236,169,236,169" Visibility="Hidden">
+            <Border Background="White" BorderBrush="DimGray" BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Grid.Row="0" HorizontalAlignment="Center" Width="350" Height="20" Fill="#FFFFC700" StrokeThickness="0"/>
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Name="informationRegisterText" Text="Hatdog" Style="{StaticResource textID_Pass}" Padding="0 0 0 0" TextWrapping="Wrap" Margin="20 0 20 0" TextAlignment="Center"/>
+                        <Button Name="informationRegisterButton" Content="Ok" Style="{StaticResource mainButton}" Height="32" Margin="40 30 40 0" Width="114" Click="informationRegisterButton_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0,.5" StartPoint="0.5,0">
+                                    <GradientStop Color="Blue"/>
+                                    <GradientStop Color="Blue" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+        </Grid>
+        <Grid Name="informationLoginPanel" Grid.ColumnSpan="2" Margin="236,169,236,169" Visibility="Hidden">
+            <Border Background="White" BorderBrush="DimGray" BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Grid.Row="0" HorizontalAlignment="Center" Width="350" Height="20" Fill="#FFFFC700" StrokeThickness="0"/>
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Name="informationLoginText" Text="Hatdog" Style="{StaticResource textID_Pass}" Padding="0 0 0 0" TextWrapping="Wrap" Margin="20 0 20 0" TextAlignment="Center"/>
+                        <Button Name="informationLoginButton" Content="Ok" Style="{StaticResource mainButton}" Height="32" Margin="40 30 40 0" Width="114" Click="informationLoginButton_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0,.5" StartPoint="0.5,0">
+                                    <GradientStop Color="Blue"/>
+                                    <GradientStop Color="Blue" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="minimizeButton" Grid.Column="0" MouseLeftButtonDown="minimizeButton_MouseLeftButtonDown" Cursor="Hand">
+                <Border Background="#FBFBFB"/>
+                <Viewbox Height="15" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15">
+                    <Path Data="M3 13.5V10.5H21V13.5H3Z" Fill="#7D7D7D"/>
+                </Viewbox>
+            </Grid>
+            <Grid x:Name="closeButton" Grid.Column="1" MouseLeftButtonDown="closeButton_MouseLeftButtonDown" Cursor="Hand">
+                <Border Background="#FBFBFB"/>
+                <Viewbox Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15">
+                    <Path Data="M12.0001 14.1213L5.56077 20.5607L3.43945 18.4394L9.87879 12L3.43945 5.56068L5.56077 3.43936L12.0001 9.8787L18.4395 3.43936L20.5608 5.56068L14.1214 12L20.5608 18.4394L18.4395 20.5607L12.0001 14.1213Z" Fill="#7D7D7D"/>
+                </Viewbox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

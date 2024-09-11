@@ -1,0 +1,778 @@
+﻿<Window x:Class="Final_Library_System.STUDENT_HOME"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Final_Library_System"
+        mc:Ignorable="d" 
+        Title="MainWindow" Height="614" Width="864" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FBFBFF">
+        <Image Source="/Image1.png" Stretch="Fill" Opacity="0.25" Visibility="Hidden"/>
+        <Image Source="\IMAGES\borrowpanel.png" Stretch="Fill" Opacity="0.25" Visibility="Hidden"/>
+        <Grid x:Name="allGrid">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.16*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Background="White">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Image Source="\Image\ucLogo.png" Width="100" Margin="0 10"/>
+                    </Grid>
+                    <Rectangle x:Name="rectBlue" Height="40" Fill="#485BFF" Margin="15 90 15 0" RadiusX="8" RadiusY="8" VerticalAlignment="Top"/>
+                    <StackPanel>
+                        <Grid x:Name="dashboardGridButton" Background="Transparent" Height="40" Margin="0 90 0 0" MouseEnter="dashboardGridButton_MouseEnter" MouseLeave="dashboardGridButton_MouseLeave" MouseLeftButtonDown="dashboardGridButton_MouseLeftButtonDown" Cursor="Hand">
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="Grid.MouseLeftButtonDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetName="rectBlue" Storyboard.TargetProperty="Margin" To="15 90 15 0" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <QuadraticEase EasingMode="EaseInOut"/>
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Grid x:Name="dashboardLogo" Margin="25 0" HorizontalAlignment="Left">
+                                <Viewbox Height="22" HorizontalAlignment="Left">
+                                    <Path x:Name="pathDashboard" Data="M33.3333 3.33331H6.66665C4.8257 3.33331 3.33331 4.8257 3.33331 6.66665V33.3333C3.33331 35.1743 4.8257 36.6666 6.66665 36.6666H33.3333C35.1743 36.6666 36.6666 35.1743 36.6666 33.3333V6.66665C36.6666 4.8257 35.1743 3.33331 33.3333 3.33331ZM6.66665 33.3333V21.6666H18.3333V33.3333H6.66665ZM21.6666 33.3333H33.3333V21.6666H21.6666V33.3333ZM21.6666 18.3333H33.3333V6.66665H21.6666V18.3333ZM18.3333 6.66665H6.66665V18.3333H18.3333V6.66665Z" Fill="White"/>
+                                </Viewbox>
+                                <TextBlock x:Name="txtDashboardGridButton" Text="Dashboard" Margin="34 2 0 0" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" FontWeight="SemiBold" Foreground="White"/>
+                            </Grid>
+                        </Grid>
+                        <Separator Height="13" Background="Transparent"/>
+                        <Grid x:Name="borrowGridButton" Background="Transparent" Height="40" MouseEnter="borrowGridButton_MouseEnter" MouseLeave="borrowGridButton_MouseLeave" MouseLeftButtonDown="borrowGridButton_MouseLeftButtonDown" Cursor="Hand">
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="Grid.MouseLeftButtonDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetName="rectBlue" Storyboard.TargetProperty="Margin" To="15 147 15 0" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <QuadraticEase EasingMode="EaseInOut"/>
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Grid x:Name="borrowLogo" Margin="25 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Viewbox Height="22" HorizontalAlignment="Left">
+                                    <Path x:Name="pathBorrow" Data="M3.33331 33.3333C3.33331 35.1743 4.8257 36.6667 6.66665 36.6667H29.0237L36.6666 29.0237V6.66668C36.6666 4.82573 35.1743 3.33334 33.3333 3.33334H6.66665C4.8257 3.33334 3.33331 4.82573 3.33331 6.66668V33.3333ZM6.66665 6.66668H33.3333V25H28.3333C26.4924 25 25 26.4924 25 28.3333V33.3333H6.66665V6.66668ZM28.3333 28.3333H32.643L28.3333 32.643V28.3333ZM11.6666 25V28.3333H21.6666V25H11.6666ZM11.6666 21.6667V18.3333H28.3333V21.6667H11.6666ZM11.6666 11.6667V15H28.3333V11.6667H11.6666Z" Fill="#7D7D7D"/>
+                                </Viewbox>
+                                <TextBlock x:Name="txtBorrowGridButton" Text="Borrow" Margin="34 2 0 0" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" FontWeight="SemiBold" Foreground="#7D7D7D"/>
+                            </Grid>
+                        </Grid>
+                        <Separator Height="13" Background="Transparent"/>
+                        <Grid x:Name="returnGridButton" Background="Transparent" Height="40" MouseEnter="returnGridButton_MouseEnter" MouseLeave="returnGridButton_MouseLeave" MouseLeftButtonDown="returnGridButton_MouseLeftButtonDown" Cursor="Hand">
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="Grid.MouseLeftButtonDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetName="rectBlue" Storyboard.TargetProperty="Margin" To="15 204 15 0" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <QuadraticEase EasingMode="EaseInOut"/>
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Grid x:Name="returnLogo" Margin="25 0" HorizontalAlignment="Left">
+                                <Viewbox Height="22" HorizontalAlignment="Left">
+                                    <Path x:Name="pathReturn" Data="M25.6904 1.66667H8.33333C6.49238 1.66667 5 3.15906 5 5.00001V35C5 36.841 6.49238 38.3333 8.33333 38.3333H31.6667C33.5076 38.3333 35 36.841 35 35V10.9763L25.6904 1.66667ZM8.33333 5.00001H21.6667V11.6667C21.6667 13.5076 23.159 15 25 15H31.6667V35H8.33333V5.00001ZM25 11.6667V5.69036L30.9763 11.6667H25ZM25.4882 18.8215L18.3333 25.9763L14.5118 22.1548L12.1548 24.5119L18.3333 30.6904L27.8452 21.1785L25.4882 18.8215Z" Fill="#7D7D7D"/>
+                                </Viewbox>
+                                <TextBlock x:Name="txtReturnGridButton" Text="Return" Margin="34 2 0 0" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" FontWeight="SemiBold" Foreground="#7D7D7D"/>
+                            </Grid>
+                        </Grid>
+                        <Separator Height="13" Background="Transparent"/>
+                        <Grid x:Name="historyGridButton" Background="Transparent" Height="40" MouseEnter="historyGridButton_MouseEnter" MouseLeave="historyGridButton_MouseLeave" MouseLeftButtonDown="historyGridButton_MouseLeftButtonDown" Cursor="Hand">
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="Grid.MouseLeftButtonDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetName="rectBlue" Storyboard.TargetProperty="Margin" To="15 261 15 0" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <QuadraticEase EasingMode="EaseInOut"/>
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Grid x:Name="historyLogo" Margin="25 0" HorizontalAlignment="Left">
+                                <Viewbox Height="22" HorizontalAlignment="Left">
+                                    <Path x:Name="pathHistory" Data="M13.3334 10H8.52351C11.7411 6.31895 15.2654 5 20 5C28.2843 5 35 11.7157 35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5.00002 28.2843 5.00002 20H1.66669C1.66669 30.1252 9.8748 38.3333 20 38.3333C30.1252 38.3333 38.3334 30.1252 38.3334 20C38.3334 9.87478 30.1252 1.66666 20 1.66666C14.6444 1.66666 10.3952 3.18426 6.66669 7.09408V3.31868H3.33335V13.3333H13.3334V10ZM28.3334 18.3333H21.6667V10H18.3334V21.6667H28.3334V18.3333Z" Fill="#7D7D7D"/>
+                                </Viewbox>
+                                <TextBlock x:Name="txtHistoryGridButton" Text="History" Margin="34 2 0 0" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" FontWeight="SemiBold" Foreground="#7D7D7D"/>
+                            </Grid>
+                        </Grid>
+                        <Separator Height="13" Background="Transparent"/>
+                        <Grid x:Name="logoutGridButton" Background="Transparent" Height="40" MouseEnter="logoutGridButton_MouseEnter" MouseLeave="logoutGridButton_MouseLeave" MouseLeftButtonDown="logoutGridButton_MouseLeftButtonDown" Cursor="Hand">
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="Grid.MouseLeftButtonDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetName="rectBlue" Storyboard.TargetProperty="Margin" To="15 318 15 0" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <QuadraticEase EasingMode="EaseInOut"/>
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Grid.Triggers>
+                            <Grid x:Name="logoutLogo" Margin="25 0" HorizontalAlignment="Left">
+                                <Viewbox Height="22" HorizontalAlignment="Left">
+                                    <Path x:Name="pathLogout" Data="M6.66665 30V8.33333H26.6666V30C26.6666 30.5844 26.7669 31.1454 26.9512 31.6667H8.33331C7.41284 31.6667 6.66665 30.9205 6.66665 30ZM31.6666 35H8.33331C5.57189 35 3.33331 32.7614 3.33331 30V5H26.6666H28.3333H30L30 13.3333H36.6666V15V16.6667V30C36.6666 32.7614 34.4281 35 31.6666 35ZM30 16.6667H33.3333V30C33.3333 30.9205 32.5871 31.6667 31.6666 31.6667C30.7462 31.6667 30 30.9205 30 30L30 16.6667ZM16.6666 11.6667V18.3333H9.99998V11.6667H16.6666ZM23.3333 16.6667V13.3333H18.3333V16.6667H23.3333ZM23.3333 20V23.3333H9.99998V20H23.3333ZM23.3333 28.3333V25H9.99998V28.3333H23.3333Z" Fill="#7D7D7D"/>
+                                </Viewbox>
+                                <TextBlock x:Name="txtLogoutGridButton" Text="Logout" Margin="34 2 0 0" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" FontWeight="SemiBold" Foreground="#7D7D7D"/>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" VerticalAlignment="Top">
+                    <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Width="100">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="minimizeButton" Grid.Column="0" MouseLeftButtonDown="minimizeButton_MouseLeftButtonDown" Cursor="Hand">
+                            <Border Background="#FBFBFB"/>
+                            <Viewbox Height="15" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15">
+                                <Path Data="M3 13.5V10.5H21V13.5H3Z" Fill="#7D7D7D"/>
+                            </Viewbox>
+                        </Grid>
+                        <Grid x:Name="closeButton" Grid.Column="1" MouseLeftButtonDown="closeButton_MouseLeftButtonDown" Cursor="Hand">
+                            <Border Background="#FBFBFB"/>
+                            <Viewbox Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15">
+                                <Path Data="M12.0001 14.1213L5.56077 20.5607L3.43945 18.4394L9.87879 12L3.43945 5.56068L5.56077 3.43936L12.0001 9.8787L18.4395 3.43936L20.5608 5.56068L14.1214 12L20.5608 18.4394L18.4395 20.5607L12.0001 14.1213Z" Fill="#7D7D7D"/>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                    <Grid x:Name="homeView">
+                        <StackPanel>
+                            <Separator Height="16" Background="Transparent"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="7.2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Hello," FontFamily="Inter" Margin="20 3 0 0" FontSize="23" Foreground="#3F3F3F"/>
+                                <TextBlock x:Name="txtFNameTitle" Grid.Column="1" Text="Joemar!" FontFamily="Inter" Margin="0 3 0 0" FontSize="23" FontWeight="SemiBold" Foreground="#3F3F3F"/>
+                            </Grid>
+                            <TextBlock Text="Welcome  to the Library System!" FontFamily="Inter" Margin="20 0 0 0" FontSize="13" Foreground="#3F3F3F"/>
+                            <Separator Height="20" Background="Transparent"/>
+                            <Grid  Margin="0 0 0 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.15*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Grid VerticalAlignment="Top">
+                                        <Rectangle Height="163" Fill="White" Margin="20 0 20 0" RadiusX="10" RadiusY="10">
+                                            <Rectangle.Effect>
+                                                <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                            </Rectangle.Effect>
+                                        </Rectangle>
+                                        <StackPanel Margin="40 10 40 0">
+                                            <TextBlock Text="User Information" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F"/>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="4*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0">
+                                                    <Separator Height="10" Background="Transparent"/>
+                                                    <TextBlock Text="Name:" FontFamily="Inter" FontSize="13" FontWeight="Medium" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock Text="ID #:" FontFamily="Inter" FontSize="13" FontWeight="Medium" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock Text="Course:" FontFamily="Inter" FontSize="13" FontWeight="Medium" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock Text="Year:" FontFamily="Inter" FontSize="13" FontWeight="Medium" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock Text="Email:" FontFamily="Inter" FontSize="13" FontWeight="Medium" Foreground="#3F3F3F"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1">
+                                                    <Separator Height="10" Background="Transparent"/>
+                                                    <TextBlock x:Name="txtstudentName" Text="Joemar Ygot" FontFamily="Inter" FontSize="13" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock x:Name="txtstudentID" Text="22203475" FontFamily="Inter" FontSize="13" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock  x:Name="txtstudentCourse" Text="BSCS" FontFamily="Inter" FontSize="13" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock  x:Name="txtstudentYear" Text="3" FontFamily="Inter" FontSize="13" Foreground="#3F3F3F"/>
+                                                    <Separator Height="2" Background="Transparent"/>
+                                                    <TextBlock  x:Name="txtstudentEmail" Text="joemarygot@gmail.com" FontFamily="Inter" FontSize="13" Foreground="#3F3F3F"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Separator Height="13" Background="Transparent"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Rectangle Height="163" Fill="White" Margin="20 0 10 0" RadiusX="10" RadiusY="10">
+                                                <Rectangle.Effect>
+                                                    <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                                </Rectangle.Effect>
+                                            </Rectangle>
+                                            <StackPanel Margin="40 10" HorizontalAlignment="Center">
+                                                <TextBlock Text="Borrow Counts" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F"/>
+                                                <Separator Height="30" Background="Transparent"/>
+                                                <TextBlock x:Name="borrowCount" Text="1" FontFamily="Inter" FontWeight="Bold" FontSize="40" HorizontalAlignment="Center" Foreground="#3F3F3F"/>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Rectangle Height="163" Fill="White" Margin="10 0 20 0" RadiusX="10" RadiusY="10">
+                                                <Rectangle.Effect>
+                                                    <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                                </Rectangle.Effect>
+                                            </Rectangle>
+                                            <StackPanel Margin="40 10" HorizontalAlignment="Center">
+                                                <TextBlock Text="Return Counts" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F"/>
+                                                <Separator Height="30" Background="Transparent"/>
+                                                <TextBlock x:Name="returnCount" Text="1" FontFamily="Inter" FontWeight="Bold" FontSize="40" HorizontalAlignment="Center" Foreground="#3F3F3F"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                    <Separator Height="13" Background="Transparent"/>
+                                    <Grid>
+                                        <Rectangle Height="140" Fill="White" Margin="20 0 20 20" RadiusX="10" RadiusY="10">
+                                            <Rectangle.Effect>
+                                                <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                            </Rectangle.Effect>
+                                        </Rectangle>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0" Margin="30 0 10 20" HorizontalAlignment="Center">
+                                                <TextBlock Text="Recent Borrowed" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F" Margin="0 10"/>
+                                                <TextBlock x:Name="recBorrow" Text="My Hatdog" FontFamily="Inter" TextWrapping="Wrap" FontWeight="Medium" FontSize="15" Foreground="#3F3F3F" Margin="0 10" HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1" Margin="10 0 30 20" HorizontalAlignment="Center">
+                                                <TextBlock Text="Recent Returned" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F" Margin="0 10"/>
+                                                <TextBlock x:Name="recReturn" Text="Your Hatdog" FontFamily="Inter" TextWrapping="Wrap" FontWeight="Medium" FontSize="15" Foreground="#3F3F3F" Margin="0 10" HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </StackPanel>
+                                <Grid Grid.Column="1">
+                                    <StackPanel>
+                                        <Grid>
+                                            <Rectangle Height="277" Fill="White" Margin="0 0 20 0" VerticalAlignment="Top" RadiusX="10" RadiusY="10">
+                                                <Rectangle.Effect>
+                                                    <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                                </Rectangle.Effect>
+                                            </Rectangle>
+                                            <StackPanel Margin="0 10 20 10">
+                                                <TextBlock Text="Recently Added Books" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F" HorizontalAlignment="Center"/>
+                                                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}"  x:Name="recentABDataGrid" Height="245" Margin="0 -20 0 0">
+                                                    <DataGrid.Columns>
+                                                        <DataGridTemplateColumn Header="" IsReadOnly="True" Width="*">
+                                                            <DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <TextBlock Text="{Binding recentABBook}" Margin="0 0 10 0"/>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </DataGridTemplateColumn.CellTemplate>
+                                                        </DataGridTemplateColumn>
+
+                                                    </DataGrid.Columns>
+                                                </DataGrid>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Separator Height="13" Background="Transparent"/>
+                                        <Grid>
+                                            <Rectangle Height="207" Fill="White" Margin="0 0 20 0" VerticalAlignment="Top" RadiusX="10" RadiusY="10">
+                                                <Rectangle.Effect>
+                                                    <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                                </Rectangle.Effect>
+                                            </Rectangle>
+                                            <StackPanel Margin="0 10 20 10">
+                                                <TextBlock Text="Your Top Books" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F" HorizontalAlignment="Center"/>
+                                                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="topBookDataGrid" Height="180" Margin="0 -20 0 0">
+                                                    <DataGrid.Columns>
+                                                        <DataGridTemplateColumn Header="" IsReadOnly="True" Width="*">
+                                                            <DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <TextBlock Text="{Binding topBook}" Margin="0 0 10 0"/>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </DataGridTemplateColumn.CellTemplate>
+                                                        </DataGridTemplateColumn>
+
+                                                    </DataGrid.Columns>
+                                                </DataGrid>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
+
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                    <Grid x:Name="borrowView" Visibility="Hidden">
+                        <StackPanel>
+                            <Separator Height="16" Background="Transparent"/>
+                            <TextBlock Grid.Column="0" Text="Borrow Books" FontFamily="Inter" Margin="20 3 0 0" FontSize="23" Foreground="#3F3F3F"/>
+                            <TextBlock Text="Want to borrow books? Just borrow here!" FontFamily="Inter" Margin="20 0 0 0" FontSize="13" Foreground="#3F3F3F"/>
+                            <Grid  Margin="0 0 0 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.15*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Separator Height="42" Background="Transparent"/>
+                                    <Grid Margin="20 0 20 0" Background="Transparent">
+                                        <Rectangle Height="25" Width="290" HorizontalAlignment="Left" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FFE1E1E1"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Viewbox Grid.Column="0" Height="15">
+                                                <Path Data="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929L20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18ZM16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10Z" Fill="#7D7D7D"/>
+                                            </Viewbox>
+                                            <TextBox x:Name="txtBookSearch" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" Foreground="#3F3F3F" Background="Transparent" BorderThickness="0" Width="250" MouseLeftButtonDown="txtBookSearch_MouseLeftButtonDown" TextChanged="txtBookSearch_TextChanged"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Separator Height="15" Background="Transparent"/>
+                                    <Grid Margin="20 0 20 0" >
+                                        <Rectangle Height="438" Fill="White" RadiusX="10" RadiusY="10">
+                                            <Rectangle.Effect>
+                                                <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                            </Rectangle.Effect>
+                                        </Rectangle>
+                                        <DataGrid x:Name="bookDataGrid" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}" Height="auto" Width="auto" SelectionChanged="bookDataGrid_SelectionChanged" >
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Book ID#" Binding="{Binding BookId}" CanUserResize="False" Width="*"/>
+                                                <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding Book_Title}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="ISBN" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding Book_ISBN}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Quantity" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding Book_Quantity}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Author ID" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding AuthID}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Author" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding Book_Author}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Status" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding Book_Status}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </Grid>
+                                </StackPanel>
+                                <Grid Grid.Column="1" Margin="0 23 20 0">
+                                    <Rectangle Height="320" Width="auto" Fill="White" Margin="0 0 0 0" VerticalAlignment="Top" RadiusX="10" RadiusY="10">
+                                        <Rectangle.Effect>
+                                            <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                        </Rectangle.Effect>
+                                    </Rectangle>
+                                    <StackPanel>
+                                        <TextBlock Text="Book Information" Margin="0 10 0 0" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F" HorizontalAlignment="Center"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1.3*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0" Margin="20 20 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0" Text="Title: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                                <TextBlock Grid.Row="1" Text="ISBN: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                                <TextBlock Grid.Row="2" Text="Author: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1" Margin="0 20 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock x:Name="bookTitleInfo" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="bookISBNInfo"  Grid.Row="1" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="bookAuthorInfo" Grid.Row="2" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+
+                                            </Grid>
+                                        </Grid>
+                                        <Separator Height="65" Background="Transparent"/>
+                                        <Grid x:Name="borrowButton" Margin="15 0 15 15" Height="40" MouseLeftButtonDown="borrowButton_MouseLeftButtonDown" Cursor="Hand">
+                                            <Border CornerRadius="8" Background="#485BFF"/>
+                                            <TextBlock Text="Borrow" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Inter" FontSize="14" FontWeight="SemiBold" Foreground="White"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                    <Grid x:Name="returnView" Visibility="Hidden">
+                        <StackPanel>
+                            <Separator Height="16" Background="Transparent"/>
+                            <TextBlock Grid.Column="0" Text="Return Books" FontFamily="Inter" Margin="20 3 0 0" FontSize="23" Foreground="#3F3F3F"/>
+                            <TextBlock Text="Want to return books? You can return here!" FontFamily="Inter" Margin="20 0 0 0" FontSize="13" Foreground="#3F3F3F"/>
+                            <Grid  Margin="0 0 0 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.15*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Separator Height="42" Background="Transparent"/>
+                                    <Grid Margin="20 0 20 0" Background="Transparent">
+                                        <Rectangle Height="25" Width="290" HorizontalAlignment="Left" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FFE1E1E1"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Viewbox Grid.Column="0" Height="15">
+                                                <Path Data="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929L20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18ZM16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10Z" Fill="#7D7D7D"/>
+                                            </Viewbox>
+                                            <TextBox x:Name="txtRBookSearch" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" Foreground="#3F3F3F" Background="Transparent" BorderThickness="0" Width="250" TextChanged="txtRBookSearch_TextChanged"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Separator Height="15" Background="Transparent"/>
+                                    <Grid Margin="20 0 20 0" >
+                                        <Rectangle Height="438" Fill="White" RadiusX="10" RadiusY="10">
+                                            <Rectangle.Effect>
+                                                <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                            </Rectangle.Effect>
+                                        </Rectangle>
+                                        <DataGrid x:Name="returnDataGrid" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}" Height="auto" Width="auto" SelectionChanged="returnDataGrid_SelectionChanged">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Borrowed ID#" Binding="{Binding BorrowedId}" CanUserResize="False" Width="auto"/>
+                                                <DataGridTemplateColumn Header="Book ID#" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding ReturnBookID}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Date Time" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding ReturnDate}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding ReturnBook_Title}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="ISBN" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding ReturnBook_ISBN}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Author" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding ReturnBook_Author}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </Grid>
+                                </StackPanel>
+                                <Grid Grid.Column="1" Margin="0 23 20 0">
+                                    <Rectangle Height="320" Width="auto" Fill="White" Margin="0 0 0 0" VerticalAlignment="Top" RadiusX="10" RadiusY="10">
+                                        <Rectangle.Effect>
+                                            <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                        </Rectangle.Effect>
+                                    </Rectangle>
+                                    <StackPanel>
+                                        <TextBlock Text="Book Information" Margin="0 10 0 0" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F" HorizontalAlignment="Center"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1.3*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0" Margin="20 20 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0" Text="Title: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                                <TextBlock Grid.Row="1" Text="ISBN: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                                <TextBlock Grid.Row="2" Text="Author: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1" Margin="0 20 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock x:Name="returnTitleInfo" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="returnISBNInfo" Grid.Row="1" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="returnAuthorInfo" Grid.Row="2" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Separator Height="65" Background="Transparent"/>
+                                        <Grid x:Name="returnButton" Margin="15 0 15 15" Height="40" MouseLeftButtonDown="returnButton_MouseLeftButtonDown" Cursor="Hand">
+                                            <Border CornerRadius="8" Background="#485BFF"/>
+                                            <TextBlock Text="Return" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Inter" FontSize="14" FontWeight="SemiBold" Foreground="White"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                    <Grid x:Name="histView" Visibility="Hidden">
+                        <StackPanel>
+                            <Separator Height="16" Background="Transparent"/>
+                            <TextBlock Grid.Column="0" Text="History" FontFamily="Inter" Margin="20 3 0 0" FontSize="23" Foreground="#3F3F3F"/>
+                            <TextBlock Text="Your recent returned books are here!" FontFamily="Inter" Margin="20 0 0 0" FontSize="13" Foreground="#3F3F3F"/>
+                            <Grid  Margin="0 0 0 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.15*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Separator Height="42" Background="Transparent"/>
+                                    <Grid Margin="20 0 20 0" Background="Transparent">
+                                        <Rectangle Height="25" Width="290" HorizontalAlignment="Left" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FFE1E1E1"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Viewbox Grid.Column="0" Height="15">
+                                                <Path Data="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929L20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18ZM16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10Z" Fill="#7D7D7D"/>
+                                            </Viewbox>
+                                            <TextBox x:Name="txtHistSearch" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Inter" FontSize="14" Foreground="#3F3F3F" Background="Transparent" BorderThickness="0" Width="250" TextChanged="txtHistSearch_TextChanged"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Separator Height="15" Background="Transparent"/>
+                                    <Grid Margin="20 0 20 0" >
+                                        <Rectangle Height="438" Fill="White" RadiusX="10" RadiusY="10">
+                                            <Rectangle.Effect>
+                                                <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                            </Rectangle.Effect>
+                                        </Rectangle>
+                                        <DataGrid x:Name="historyDataGrid" RowStyle="{DynamicResource DataGridRowStyle1}" FontSize="8" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}" Height="440" Width="auto" SelectionChanged="historyDataGrid_SelectionChanged" >
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Borrowed ID#" Binding="{Binding HistoryBorrowedId}" CanUserResize="False" Width="auto"/>
+                                                <DataGridTemplateColumn Header="Book ID#" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding HistoryBookID}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding HistoryBook_Title}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="ISBN" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding HistoryBook_ISBN}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Author" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding HistoryBook_Author}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Borrowed Date" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding HistoryBook_Borrow_Date}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                                <DataGridTemplateColumn Header="Returned Date" IsReadOnly="True" Width="*">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding HistoryBook_Return_Date}" Margin="0 0 10 0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </Grid>
+                                </StackPanel>
+                                <Grid Grid.Column="1" Margin="0 89 20 0">
+                                    <Rectangle Height="438" Width="auto" Fill="White" Margin="0 0 0 0" VerticalAlignment="Top" RadiusX="10" RadiusY="10">
+                                        <Rectangle.Effect>
+                                            <DropShadowEffect Color="DimGray" Direction="270" ShadowDepth="10" Opacity="0.1" BlurRadius="50"/>
+                                        </Rectangle.Effect>
+                                    </Rectangle>
+                                    <StackPanel>
+                                        <TextBlock Text="Book Information" Margin="0 10 0 0" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="#3F3F3F" HorizontalAlignment="Center"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1.3*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0" Margin="20 20 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0" Text="Title: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                                <TextBlock Grid.Row="1" Text="ISBN: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                                <TextBlock Grid.Row="2" Text="Author: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Medium"/>
+                                                <TextBlock Grid.Row="3" Text="Date Borrowed: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="12" FontWeight="Medium" TextWrapping="Wrap"/>
+                                                <TextBlock Grid.Row="4" Text="Date Returned: " HorizontalAlignment="Left" FontFamily="Inter" FontSize="12" FontWeight="Medium" TextWrapping="Wrap"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1" Margin="0 20 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock x:Name="historyTitleInfo" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="historyISBNInfo" Grid.Row="1" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="historyAuthorInfo" Grid.Row="2" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="historyDataBInfo" Grid.Row="3" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+                                                <TextBlock x:Name="historyDateRInfo" Grid.Row="4" TextWrapping="Wrap"  HorizontalAlignment="Left" FontFamily="Inter" FontSize="15" FontWeight="Normal"/>
+
+                                            </Grid>
+                                        </Grid>
+                                        <Grid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="informationGrid" Width="300" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden">
+            <Border Background="White" CornerRadius="20" BorderThickness="1" BorderBrush="#7D7D7D"/>
+            <StackPanel>
+                <Grid Height="40">
+                    <Border Background="#485BFF" CornerRadius="20 20 0 0" BorderThickness="1" BorderBrush="#7D7D7D">
+                        <TextBlock Text="Information" FontFamily="Inter" FontWeight="Bold" FontSize="15" Foreground="White" Margin="20 10"/>
+                    </Border>
+                </Grid>
+                <Separator Height="10" Background="Transparent"/>
+                <Grid Height="145">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="txtInformation" Text="lorem ipsum dolor" Margin="20 0 20 0" FontFamily="Inter" FontSize="15" Foreground="#7D7D7D" TextWrapping="Wrap"/>
+                    <Grid x:Name="okButton" Grid.Row="1" MouseLeftButtonDown="okButton_MouseLeftButtonDown" Cursor="Hand" Visibility="Hidden">
+                        <Border Background="White" CornerRadius="0 0 20 20" BorderThickness="1" BorderBrush="#7D7D7D"/>
+                        <TextBlock Text="Ok" FontFamily="Inter" FontSize="15" Foreground="#7D7D7D" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid x:Name="canyesButton" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="cancelButton"  Grid.Column="0" Cursor="Hand" MouseLeftButtonDown="cancelButton_MouseLeftButtonDown">
+                            <Border Background="White" CornerRadius="0 0 0 20" BorderThickness="1" BorderBrush="#7D7D7D"/>
+                            <TextBlock Text="Cancel" FontFamily="Inter" FontSize="15" Foreground="#7D7D7D" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <Grid x:Name="yesButton" Grid.Column="2" Cursor="Hand" MouseLeftButtonDown="yesButton_MouseLeftButtonDown">
+                            <Border Background="White" CornerRadius="0 0 20 0" BorderThickness="1" BorderBrush="#7D7D7D"/>
+                            <TextBlock Text="Yes" FontFamily="Inter" FontSize="15" Foreground="#7D7D7D" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>
